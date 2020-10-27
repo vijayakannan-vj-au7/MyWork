@@ -34,7 +34,7 @@ const EditUserbtn = () => {
         <Modal.Header closeButton>
           <Modal.Title>EDIT USER DATA</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="ModalBody">
           <form onSubmit={userFormSubmitHandler}>
             <div className="form-group">
               <label>Email address</label>

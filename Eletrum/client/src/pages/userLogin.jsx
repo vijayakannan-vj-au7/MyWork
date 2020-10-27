@@ -1,11 +1,11 @@
 import React from "react";
-import Loign from "../components/Loign";
+import Login from "../components/Login";
 
 function UserLogin() {
   return (
-    <div className="text-center mt-5">
-      <h1>USER LOGIN</h1>
-      <Loign />
+    <div className="mt-5">
+      <h3 className="text-center">LOGIN</h3>
+      <Login />
     </div>
   );
 }

@@ -25,7 +25,7 @@ const Table = (props) => {
               <td>{data.first_name}</td>
               <td>{data.last_name}</td>
               <td>
-                <EditUserbtn />
+                <EditUserbtn /> &nbsp;
                 <DelUserBtn id={data.id} />
               </td>
             </tr>

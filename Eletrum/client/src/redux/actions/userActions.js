@@ -19,6 +19,18 @@ export const userDataHelper = (data) => {
   };
 };
 
+//add user Data helper
+export const addUserDataHelper = (data) => {
+  console.log(data);
+  return {
+    type: "SET_ADDUSER_DATA",
+    payload: {
+      addUserData: data,
+      isAdded: true,
+    },
+  };
+};
+
 //user logout helper
 export const userLogoutHelper = () => {
   return {
@@ -31,9 +43,13 @@ export const userLogoutHelper = () => {
 export const userlogin = (userloginCredentials, history) => {
   return async (dispatch) => {
     try {
+      //getting the username before '@' in email
       const userName = userloginCredentials.email.replace(/@.*/, "");
-      const firstCharUserName = userloginCredentials.email.charAt(0);
+      //getting the first character of username
+      const firstCharUserName = userName.charAt(0);
+
       dispatch(userLoignHelper(userName, firstCharUserName));
+
       const { data } = await axios.get("https://reqres.in/api/users");
       console.log(data);
       dispatch(userDataHelper(data));
@@ -55,8 +71,11 @@ export const addUserData = (userData, history) => {
         "https://reqres.in/api/users",
         userData
       );
+
+      if (data) {
+        dispatch(addUserDataHelper(data));
+      }
     } catch (err) {
-      console.log("Error in user Login Action", err.message);
       alert(err.response.data);
     }
   };
@@ -95,9 +114,7 @@ export const deleteUserData = (deleteData) => {
 //user logout
 export const userLogout = (history) => {
   return (dispatch) => {
-    localStorage.removeItem("isLogged");
     dispatch(userLogoutHelper());
     history.push("/");
-    window.location.reload();
   };
 };

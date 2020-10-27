@@ -2,6 +2,8 @@ const initialState = {
   userName: "",
   firstChar: "",
   userData: [],
+  addUserData: [],
+  isAdded: false,
   isAuthenticated: false,
 };
 
@@ -19,12 +21,17 @@ const userReducer = (state = initialState, action) => {
         ...state,
         userData: action.payload.data,
       };
-    case "SET_USERDELETE_DATA":
+    case "SET_ADDUSER_DATA":
+      console.log(action.payload.data);
       return {
         ...state,
-        userName: initialState,
-        firstChar: initialState,
-        isAuthenticated: initialState,
+        addUserData: action.payload.data,
+        isAdded: true,
+      };
+    case "SET_USERLOGOUT_DATA":
+      return {
+        ...state,
+        isAuthenticated: false,
       };
     default:
       return state;
