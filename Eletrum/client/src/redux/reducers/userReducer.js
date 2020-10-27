@@ -4,6 +4,11 @@ const initialState = {
   userData: [],
   addUserData: [],
   isAdded: false,
+  deleteUserData: [],
+  isDeleted: false,
+  editData: [],
+  editUserData: [],
+  isEdited: false,
   isAuthenticated: false,
 };
 
@@ -22,11 +27,27 @@ const userReducer = (state = initialState, action) => {
         userData: action.payload.data,
       };
     case "SET_ADDUSER_DATA":
-      console.log(action.payload.data);
       return {
         ...state,
-        addUserData: action.payload.data,
-        isAdded: true,
+        addUserData: action.payload.addUserData,
+        isAdded: action.payload.isAdded,
+      };
+    case "SET_DELETEUSER_DATA":
+      return {
+        ...state,
+        deleteUserData: action.payload.deleteUserData,
+        isDeleted: action.payload.isDeleted,
+      };
+    case "SET_EDIT_DATA":
+      return {
+        ...state,
+        editData: action.payload.editData,
+      };
+    case "SET_EDITUSER_DATA":
+      return {
+        ...state,
+        editUserData: action.payload.editUserData,
+        isEdited: action.payload.isEdited,
       };
     case "SET_USERLOGOUT_DATA":
       return {

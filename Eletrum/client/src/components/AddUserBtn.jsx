@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Modal, Button } from "react-bootstrap";
-import { ToastContainer, toast } from "react-toastify";
 import { addUserData } from "../redux/actions/userActions";
 
 const AddUserBtn = () => {
@@ -19,9 +18,8 @@ const AddUserBtn = () => {
   //user form handler
   const userFormSubmitHandler = (e) => {
     e.preventDefault();
-    console.log(name, job);
     dispatch(addUserData({ name, job }));
-    //handleClose();
+    handleClose();
   };
 
   return (
@@ -64,17 +62,6 @@ const AddUserBtn = () => {
           </form>
         </Modal.Body>
       </Modal>
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
     </>
   );
 };

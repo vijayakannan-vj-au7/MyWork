@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useHistory, useEffect } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "../../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import { userLogout } from "../redux/actions/userActions";
@@ -19,7 +19,7 @@ const Navbar = () => {
       <nav className="navbar navbar-expand-lg navbar-light bg-info">
         {store.isAuthenticated ? (
           <>
-            <Link className="navbar-brand" to="#">
+            <Link className="navbar-brand" to="/">
               Hi Welcome {store.userName}
             </Link>
             <button

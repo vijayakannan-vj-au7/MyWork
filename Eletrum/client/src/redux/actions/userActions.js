@@ -21,12 +21,43 @@ export const userDataHelper = (data) => {
 
 //add user Data helper
 export const addUserDataHelper = (data) => {
-  console.log(data);
   return {
     type: "SET_ADDUSER_DATA",
     payload: {
       addUserData: data,
       isAdded: true,
+    },
+  };
+};
+
+//edit Data helper
+export const editDataHelper = (data) => {
+  return {
+    type: "SET_EDIT_DATA",
+    payload: {
+      editData: data,
+    },
+  };
+};
+
+//edit user Data helper
+export const editUserDataHelper = (data) => {
+  return {
+    type: "SET_EDITUSER_DATA",
+    payload: {
+      editUserData: data,
+      isEdited: true,
+    },
+  };
+};
+
+//delete user Data helper
+export const deleteUserDataHelper = (data) => {
+  return {
+    type: "SET_DELETEUSER_DATA",
+    payload: {
+      deleteUserData: data,
+      isDeleted: true,
     },
   };
 };
@@ -51,7 +82,7 @@ export const userlogin = (userloginCredentials, history) => {
       dispatch(userLoignHelper(userName, firstCharUserName));
 
       const { data } = await axios.get("https://reqres.in/api/users");
-      console.log(data);
+
       dispatch(userDataHelper(data));
       history.push("/userDashboard");
     } catch (err) {
@@ -61,9 +92,10 @@ export const userlogin = (userloginCredentials, history) => {
   };
 };
 
+//get user data
 export const getUserData = (userData) => (dispatch) => {};
 
-//post the user data
+//add the user data
 export const addUserData = (userData, history) => {
   return async (dispatch) => {
     try {
@@ -81,14 +113,32 @@ export const addUserData = (userData, history) => {
   };
 };
 
+//get edit data for single user
+export const editData = (Id) => {
+  return async (dispatch) => {
+    try {
+      const id = Object.values(Id);
+      const { data } = await axios.get(`https://reqres.in/api/users/${id}`);
+      if (data) {
+        dispatch(editDataHelper(data));
+      }
+    } catch (err) {
+      alert(err.response.data);
+    }
+  };
+};
+
 //edit the user data
 export const editUserData = (editData) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.post(
-        "https://reqres.in/api/users",
+        "https://reqres.in/api/users/",
         editData
       );
+      if (data) {
+        dispatch(editUserDataHelper(data));
+      }
     } catch (err) {
       console.log("Error in user Login Action", err.message);
       alert(err.response.data);
@@ -104,6 +154,9 @@ export const deleteUserData = (deleteData) => {
         "https://reqres.in/api/users",
         deleteData
       );
+      if (data) {
+        dispatch(deleteUserDataHelper(data));
+      }
     } catch (err) {
       console.log("Error in user Login Action", err.message);
       alert(err.response.data);

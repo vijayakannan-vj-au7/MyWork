@@ -8,6 +8,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  //state
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 

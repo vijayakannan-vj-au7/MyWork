@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { useDispatch, useEffect } from "react-redux";
+import { useDispatch } from "react-redux";
+//import { useSelector} from "react-redux";
 import { Modal, Button } from "react-bootstrap";
-import { editUserData } from "../redux/actions/userActions";
+import { editData, editUserData } from "../redux/actions/userActions";
 
-const EditUserbtn = () => {
+const EditUserbtn = (props) => {
+  //const store = useSelector((store) => store.userRoot);
   const dispatch = useDispatch();
 
   //edit user data model
@@ -16,9 +18,14 @@ const EditUserbtn = () => {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
 
+  //editData helper
+  const editDataHelper = (e) => {
+    const id = props.id;
+    dispatch(editData({ id }));
+    handleShow();
+  };
   //user form handler
   const userFormSubmitHandler = (e) => {
-    console.log(email, firstname, lastname);
     e.preventDefault();
     dispatch(editUserData({ email, firstname, lastname }));
     handleClose();
@@ -26,7 +33,7 @@ const EditUserbtn = () => {
 
   return (
     <>
-      <Button variant="warning" className="btn-sm" onClick={handleShow}>
+      <Button variant="warning" className="btn-sm" onClick={editDataHelper}>
         EDIT
       </Button>
 
@@ -43,6 +50,7 @@ const EditUserbtn = () => {
                 className="form-control"
                 placeholder="Enter email"
                 required
+                //value={store.editData.data.email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
@@ -53,6 +61,7 @@ const EditUserbtn = () => {
                 className="form-control"
                 placeholder="Enter firstname"
                 required
+                // value={store.editData.data.first_name}
                 onChange={(e) => setFirstname(e.target.value)}
               />
             </div>
@@ -63,7 +72,10 @@ const EditUserbtn = () => {
                 className="form-control"
                 placeholder="Enter Lastname"
                 required
-                onChange={(e) => setLastname(e.target.value)}
+                onChange={(e) => {
+                  // value={store.editData.data.last_name}
+                  setLastname(e.target.value);
+                }}
               />
             </div>
             <div className="text-center">

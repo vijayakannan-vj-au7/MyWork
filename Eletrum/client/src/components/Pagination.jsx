@@ -1,35 +1,36 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Pagination = () => {
   return (
     <>
       <div>
         <nav aria-label="Page navigation example">
-          <ul class="pagination">
-            <li class="page-item">
-              <a class="page-link" href="#">
+          <ul className="pagination">
+            <li className="page-item">
+              <Link className="page-link" to="#">
                 Previous
-              </a>
+              </Link>
             </li>
-            <li class="page-item">
-              <a class="page-link" href="#">
+            <li className="page-item">
+              <Link className="page-link" to="#/">
                 1
-              </a>
+              </Link>
             </li>
-            <li class="page-item">
-              <a class="page-link" href="#">
+            <li className="page-item">
+              <Link className="page-link" to="#/">
                 2
-              </a>
+              </Link>
             </li>
-            <li class="page-item">
-              <a class="page-link" href="#">
+            <li className="page-item">
+              <Link className="page-link" to="#/">
                 3
-              </a>
+              </Link>
             </li>
-            <li class="page-item">
-              <a class="page-link" href="#">
+            <li className="page-item">
+              <Link className="page-link" to="#/">
                 Next
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>

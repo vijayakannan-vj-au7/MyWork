@@ -7,9 +7,9 @@ import AddUserbtn from "../components/AddUserBtn";
 
 const UserDashboard = () => {
   const store = useSelector((store) => store.userRoot);
+  //
   useEffect(() => {
-    console.log(store.addUserData);
-    if (store.addUserData) {
+    if (store.addUserData && store.isAdded) {
       toast.success("User data added successfully");
     }
   }, [store.addUserData]);
