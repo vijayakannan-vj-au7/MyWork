@@ -1,22 +1,29 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-//import { useSelector} from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Modal, Button } from "react-bootstrap";
 import { editData, editUserData } from "../redux/actions/userActions";
 
 const EditUserbtn = (props) => {
-  //const store = useSelector((store) => store.userRoot);
+  const store = useSelector((store) => store.userRoot);
   const dispatch = useDispatch();
-
-  //edit user data model
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   //state
   const [email, setEmail] = useState("");
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
+
+  useEffect(() => {
+    if (store.editData.data) {
+      setEmail(store.editData.data.email);
+      setFirstname(store.editData.data.first_name);
+      setLastname(store.editData.data.last_name);
+    }
+  }, [store.editData]);
+
+  //edit user data model
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   //editData helper
   const editDataHelper = (e) => {
@@ -50,7 +57,7 @@ const EditUserbtn = (props) => {
                 className="form-control"
                 placeholder="Enter email"
                 required
-                //value={store.editData.data.email}
+                value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
@@ -61,7 +68,7 @@ const EditUserbtn = (props) => {
                 className="form-control"
                 placeholder="Enter firstname"
                 required
-                // value={store.editData.data.first_name}
+                value={firstname}
                 onChange={(e) => setFirstname(e.target.value)}
               />
             </div>
@@ -72,10 +79,8 @@ const EditUserbtn = (props) => {
                 className="form-control"
                 placeholder="Enter Lastname"
                 required
-                onChange={(e) => {
-                  // value={store.editData.data.last_name}
-                  setLastname(e.target.value);
-                }}
+                value={lastname}
+                onChange={(e) => setLastname(e.target.value)}
               />
             </div>
             <div className="text-center">
