@@ -5,6 +5,7 @@ import { addUserData } from "../redux/actions/userActions";
 
 const AddUserBtn = () => {
   const dispatch = useDispatch();
+
   //add user data model
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);

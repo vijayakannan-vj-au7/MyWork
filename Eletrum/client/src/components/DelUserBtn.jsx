@@ -5,6 +5,7 @@ import { deleteUserData } from "../redux/actions/userActions";
 
 const DelUserBtn = (props) => {
   const dispatch = useDispatch();
+
   //edit user data model
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);

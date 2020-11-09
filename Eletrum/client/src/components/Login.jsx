@@ -12,18 +12,11 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  //email validation function
-  const emailValidate = (email) => {
-    const pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    return pattern.test(email);
-  };
-
   //user login form handler
   const loginFormSubmitHandler = (e) => {
     e.preventDefault();
     //calling form validation fuction
     const isValid = formValidate();
-    //
     if (isValid) {
       //comparing the password
       if (password === "admin@123") {
@@ -68,13 +61,14 @@ const Login = () => {
       <div className="container">
         <div className="row justify-content-center  ">
           <div className="shadow-lg bg-white border border-silver rounded p-5 mt-2">
-            <form onSubmit={loginFormSubmitHandler}>
+            <form noValidate onSubmit={loginFormSubmitHandler}>
               <div className="form-group">
                 <label>Email address</label>
                 <input
-                  type="text"
+                  type="email"
                   className="form-control"
                   placeholder="Enter email"
+                  required
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
@@ -84,6 +78,7 @@ const Login = () => {
                   type="password"
                   className="form-control"
                   placeholder="Enter Password"
+                  required
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>

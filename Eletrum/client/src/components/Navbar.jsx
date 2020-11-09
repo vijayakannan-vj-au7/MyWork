@@ -69,7 +69,7 @@ const Navbar = () => {
           </>
         ) : (
           <Link className="navbar-brand" to="/">
-            Hi Welcome
+            Hi Welcome To Electrum
           </Link>
         )}
       </nav>
