@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
 //user login helper
 export const userLoignHelper = (userName, firstChar) => {
@@ -15,7 +16,10 @@ export const userLoignHelper = (userName, firstChar) => {
 export const userDataHelper = (data) => {
   return {
     type: "SET_USER_DATA",
-    payload: data,
+    payload: {
+      data: data.data,
+      totalPage: data.total_pages,
+    },
   };
 };
 
@@ -77,13 +81,9 @@ export const userlogin = (userloginCredentials, history) => {
       //getting the username before '@' in email
       const userName = userloginCredentials.email.replace(/@.*/, "");
       //getting the first character of username
-      const firstCharUserName = userName.charAt(0);
+      const firstCharUserName = userName.charAt(0).toUpperCase();
 
       dispatch(userLoignHelper(userName, firstCharUserName));
-
-      const { data } = await axios.get("https://reqres.in/api/users");
-
-      dispatch(userDataHelper(data));
       history.push("/userDashboard");
     } catch (err) {
       console.log("Error in user Login Action", err.message);
@@ -92,8 +92,21 @@ export const userlogin = (userloginCredentials, history) => {
   };
 };
 
-//get user data
-export const getUserData = (userData) => (dispatch) => {};
+//get user data with pagination
+export const getUserData = (pageNo) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.get(
+        `https://reqres.in/api/users?page=${pageNo}`
+      );
+      console.log(data.total_pages);
+      //
+      dispatch(userDataHelper(data));
+    } catch (err) {
+      console.log("Error in user Login Action", err.message);
+    }
+  };
+};
 
 //add the user data
 export const addUserData = (userData, history) => {
@@ -103,8 +116,8 @@ export const addUserData = (userData, history) => {
         "https://reqres.in/api/users",
         userData
       );
-
       if (data) {
+        toast.success("Record added successfully");
         dispatch(addUserDataHelper(data));
       }
     } catch (err) {
@@ -137,6 +150,7 @@ export const editUserData = (editData) => {
         editData
       );
       if (data) {
+        toast.success("Record edited & saved successfully");
         dispatch(editUserDataHelper(data));
       }
     } catch (err) {
@@ -155,6 +169,7 @@ export const deleteUserData = (deleteData) => {
         deleteData
       );
       if (data) {
+        toast.success("Record deleted successfully");
         dispatch(deleteUserDataHelper(data));
       }
     } catch (err) {

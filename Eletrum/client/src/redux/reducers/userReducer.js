@@ -2,6 +2,7 @@ const initialState = {
   userName: "",
   firstChar: "",
   userData: [],
+  totalPage: [],
   addUserData: [],
   isAdded: false,
   deleteUserData: [],
@@ -25,6 +26,7 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         userData: action.payload.data,
+        totalPage: action.payload.totalPage,
       };
     case "SET_ADDUSER_DATA":
       return {

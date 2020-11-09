@@ -40,7 +40,7 @@ const Navbar = () => {
             >
               <ul className="navbar-nav ml-auto mr-5">
                 <li className="nav-item dropdown">
-                  <Link
+                  <nav-link
                     id="navbarDropdown"
                     role="button"
                     data-toggle="dropdown"
@@ -49,12 +49,14 @@ const Navbar = () => {
                   >
                     <div id="alpha">
                       <span>
-                        <h2>{store.firstChar}</h2>
+                        <h2 className="justify-content-center mt-1">
+                          {store.firstChar}
+                        </h2>
                       </span>
                     </div>
-                  </Link>
+                  </nav-link>
                   <div
-                    className="dropdown-menu"
+                    className="dropdown-menu dropdown-menu-right"
                     aria-labelledby="navbarDropdown"
                   >
                     <Link className="dropdown-item" onClick={userlogoutHandler}>
