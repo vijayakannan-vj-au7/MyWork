@@ -1,10 +1,10 @@
 import "./App.css";
-import MasterCard from "./components/MasterCard";
+import Stock from "./pages/Stock";
 
 function App() {
   return (
     <div className="App">
-      <MasterCard />
+      <Stock />
     </div>
   );
 }
