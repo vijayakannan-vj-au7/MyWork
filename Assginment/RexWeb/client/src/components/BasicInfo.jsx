@@ -3,33 +3,34 @@ import React from "react";
 const BasicInfo = (props) => {
   return (
     <>
-      {props.bsData.map((data) => (
-        <>
-          <div className="border border-gray p-1 m-1">
-            <div className="row">
-              <div className="col-8 small">
-                <i className="fa fa-box" />
-                Quantity
-              </div>
-              <div className="col-2 small">{data.quantity}</div>
-            </div>
-            <div className="row">
-              <div className="col-8 small">
-                <i className="fas fa-at" />
-                Avg-Cost
-              </div>
-              <div className="col-1 small">${data.avgcost}</div>
-            </div>
-            <div className="row">
-              <div className="col-8 small">
-                <i className="fas fa-money-check-alt" />
-                Invested Amt
-              </div>
-              <div className="col-1 small">${data.investamt}</div>
-            </div>
+      <div style={{ width: "15vw" }} className="border border-gray m-1 p-1">
+        <div className="row small">
+          <div className="col-6">
+            <i className="fa fa-box"></i>Quantity
           </div>
-        </>
-      ))}
+          <div className="col-2">
+            <span>{props.sData.quantity}</span>
+          </div>
+        </div>
+        <div className="row small">
+          <div className="col-6">
+            <i className="fas fa-at" />
+            Avg-Cost
+          </div>
+          <div className="col-2">
+            <span>${props.sData.avgcost}</span>
+          </div>
+        </div>
+        <div className="row small">
+          <div className="col-6">
+            <i className="fas fa-money-check-alt"></i>
+            Invested
+          </div>
+          <div className="col-2">
+            <span>${props.sData.investamt}</span>
+          </div>
+        </div>
+      </div>
     </>
   );
 };

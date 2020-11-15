@@ -1,7 +1,25 @@
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
 
-const DonutChart = () => {
+const DonutChart = (props) => {
+  const arrData = [];
+  props.sData.map((data) => {
+    arrData.push(data.portvalue);
+  });
+
+  const arrLen = arrData.length;
+
+  var mf = 0;
+  var etf = 0;
+
+  arrData.map((data, index) => {
+    if (arrLen / 2 > index) {
+      mf = mf + data;
+    } else {
+      etf = etf + data;
+    }
+  });
+
   return (
     <>
       <div>
@@ -11,7 +29,7 @@ const DonutChart = () => {
             datasets: [
               {
                 label: "number",
-                data: [70, 30],
+                data: [mf, etf],
                 backgroundColor: ["aqua", "orange"],
                 borderWidth: 2,
               },

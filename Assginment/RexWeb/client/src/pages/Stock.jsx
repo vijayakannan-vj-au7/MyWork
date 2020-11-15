@@ -16,7 +16,7 @@ const Stock = () => {
 
   return (
     <div>
-      <MasterCard msData={store.stock} />
+      <MasterCard sData={store.stock} />
     </div>
   );
 };

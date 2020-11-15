@@ -1,8 +1,13 @@
 const { Router } = require("express");
-const stockController = require("../controllers/stockController");
+const {
+  getStockData,
+  addStockData,
+} = require("../controllers/stockController");
 
 const router = Router();
 
-//router.get();
+router.post("/addstock", addStockData);
+
+router.get("/getstock", getStockData);
 
 module.exports = router;
