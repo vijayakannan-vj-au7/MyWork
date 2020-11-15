@@ -8,7 +8,9 @@ const Company = (props) => {
           <div className="col">
             <span className="cname">iShares</span>
             <br />
-            <span className="sharetype">{props.sData.scrip}</span>
+            <span className="sharetype font-weight-bold text-dark">
+              {props.sData.scrip}
+            </span>
           </div>
         </div>
       </div>

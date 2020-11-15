@@ -9,14 +9,16 @@ import CardButton from "./CardButton";
 import DonutChart from "./DonutChart";
 
 const MasterCard = (props) => {
-  console.log(props);
   return (
     <>
       <div className="container-fluid mt-5">
         <div className="row">
           <div className="col-9">
             {props.sData.map((data) => (
-              <div className="row pl-2 p-1 mt-1 ml-3 border shadow">
+              <div
+                className="row pl-2 p-1 mt-1 ml-3 border shadow"
+                key={data._id}
+              >
                 <Share sData={data} />
                 <Company sData={data} />
                 <BasicInfo sData={data} />
@@ -27,7 +29,9 @@ const MasterCard = (props) => {
             ))}
           </div>
           <div className="col-3">
-            <span className="small">Portfolio</span>
+            <div className="float-left">
+              <span className="small font-weight-bold">Portfolio</span>
+            </div>
             <DonutChart sData={props.sData} />
           </div>
         </div>

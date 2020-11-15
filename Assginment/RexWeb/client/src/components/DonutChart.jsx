@@ -3,8 +3,10 @@ import { Doughnut } from "react-chartjs-2";
 
 const DonutChart = (props) => {
   const arrData = [];
+
   props.sData.map((data) => {
     arrData.push(data.portvalue);
+    return null;
   });
 
   const arrLen = arrData.length;
@@ -18,6 +20,7 @@ const DonutChart = (props) => {
     } else {
       etf = etf + data;
     }
+    return null;
   });
 
   return (
@@ -35,7 +38,14 @@ const DonutChart = (props) => {
               },
             ],
           }}
-          options={{ maintainAspectRatio: false }}
+          options={
+            ({ maintainAspectRatio: false },
+            {
+              legend: {
+                position: "right",
+              },
+            })
+          }
         />
       </div>
     </>

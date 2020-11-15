@@ -64,7 +64,11 @@ company details
 .sharetype {
   font-size: small;
   text-align: center;
-  color: rgb(175, 173, 173);
+  color: rgb(155, 155, 155);
+}
+
+.gtext {
+  color: rgb(155, 155, 155);
 }
 
 .price {

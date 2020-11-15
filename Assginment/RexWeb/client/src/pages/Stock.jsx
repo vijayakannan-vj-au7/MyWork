@@ -7,8 +7,6 @@ import { getStockData } from "../redux/actions/stockAction";
 const Stock = () => {
   const dispatch = useDispatch();
   const store = useSelector((store) => store.stockRoot);
-  console.log(store.stock);
-
   //
   useEffect(() => {
     dispatch(getStockData());
