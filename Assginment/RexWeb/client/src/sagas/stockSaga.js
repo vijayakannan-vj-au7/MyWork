@@ -2,7 +2,7 @@ import { call, put, takeEvery } from "redux-saga/effects";
 import { setStockData } from "../redux/actions/stockAction";
 
 function getApi() {
-  return fetch("http://localhost:5000/api/getstock", {
+  return fetch("https://mystockplace.herokuapp.com/api/getstock", {
     method: "GET",
   })
     .then((res) => res.json())
