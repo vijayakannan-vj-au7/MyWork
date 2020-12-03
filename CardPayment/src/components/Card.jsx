@@ -1,13 +1,11 @@
 //core
 import React, { useState, useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
 
 //component
 import Lable from "./Lable";
 
 //
 const Card = () => {
-  const dispatch = useDispatch();
   //state
   const [name, setName] = useState();
   const [firstBox, setFirstBox] = useState();
@@ -30,6 +28,11 @@ const Card = () => {
     const card = `${firstBox}${secondBox}${thirdBox}${fourthBox}`;
     if (card.length === 16 || 32) {
       alert(`${name} Card Is Accepted`);
+      setName("");
+      setFirstBox("");
+      setSecondBox("");
+      setThirdBox("");
+      setFourthBox("");
     } else {
       alert("Card Number Should Be 16 Digits.!");
     }
