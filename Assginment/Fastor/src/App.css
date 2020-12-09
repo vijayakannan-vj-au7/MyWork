@@ -1,0 +1,309 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+/*--------------------------------------------------------------
+# Logo Section
+--------------------------------------------------------------*/
+.nav-logo {
+  margin-left: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 54%;
+}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+.nav-back {
+  background: #e0bc90b2;
+  color: #fff;
+}
+.navbar-brand {
+  color: #000;
+}
+.navbar-brand:hover {
+  color: #fff;
+}
+.nav-link {
+  color: #000;
+}
+.nav-link:hover {
+  color: #fff;
+}
+.navbar-toggler {
+  outline: none !important;
+}
+
+/*--------------------------------------------------------------
+#container-height
+---------------------------------------------------------------*/
+.container-height {
+  min-height: 82vh;
+}
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+#hero {
+  width: 100%;
+  height: 90vh;
+  background: url("../src/images/hero.jpeg") center center;
+  background-size: cover;
+  position: relative;
+}
+
+#hero .container {
+  padding-top: 80px;
+}
+
+#hero:before {
+  content: "";
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#hero h1 {
+  margin: 0 0 10px 0;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  color: #fff;
+}
+
+#hero h2 {
+  color: #eee;
+  margin-bottom: 40px;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.main-btn {
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 28px;
+  border-radius: 50px;
+  transition: 0.5s;
+  margin: 10px;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.main-btn:hover {
+  background: #e0bc90b2;
+  border: 2px solid #e0bc90b2;
+  text-decoration: none;
+  color: #fff;
+}
+/*------------------------------------------
+               media query
+--------------------------------------------*/
+@media (min-width: 992px) {
+  .about .about-img {
+    width: 75%;
+    float: right;
+  }
+  .about .about-text {
+    left: 0;
+    width: 60%;
+    margin-top: 6rem;
+    position: absolute;
+  }
+  .about .about-text .about-button {
+    width: 100%;
+    left: 0;
+    position: absolute;
+    bottom: -2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .about .about-text {
+    width: 45%;
+  }
+}
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+.footer {
+  text-align: center;
+  font-size: 0.9rem;
+  background: #e0bc90b2;
+}
+.footer .btn-back {
+  background: #fff;
+  color: #e0bc90b2;
+}
+.footer .text {
+  color: #000;
+}
+
+.footer i {
+  color: #11dbcf;
+}
+
+/*--------------------------------------------------------------
+# Form-button
+--------------------------------------------------------------*/
+
+.form-login > input {
+  width: 20vw;
+  height: 35px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.form-login > button {
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 28px;
+  border-radius: 50px;
+  transition: 0.5s;
+  margin: 10px;
+  border: 2px solid #fff;
+  color: #fff;
+  background-color: transparent;
+}
+
+.form-login > button:hover {
+  background: #e0bc90b2;
+  border: 2px solid #e0bc90b2;
+  text-decoration: none;
+  color: #fff;
+  outline: none;
+}
+
+.form-login {
+  color: #eee;
+}
+
+/*-----------------------------------------------------------------------
+forgot-password-link
+------------------------------------------------------------------------*/
+.forgot-psw {
+  cursor: pointer;
+  font-size: 11px;
+  color: #90bdc1;
+}
+
+.forgot-psw:hover {
+  cursor: pointer;
+  font-size: 11px;
+  color: #eee;
+  text-decoration: none;
+}
+
+/*-----------------------------------------------------------------------
+Model Design and Button
+------------------------------------------------------------------------*/
+
+.ModelBody {
+  background: #e0bc90b2;
+  background: -webkit-linear-gradient(to right, #e0bc90b2, #e0bc90b2);
+  background: linear-gradient(to right, #e0bc90b2, #e0bc90b2);
+  line-height: 1em;
+  color: rgb(83, 83, 83);
+}
+
+.model-main-btn {
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 28px;
+  border-radius: 50px;
+  transition: 0.5s;
+  margin: 10px;
+  border: 2px solid #eee;
+  color: #eee;
+  background-color: transparent;
+  outline: none;
+}
+
+.model-main-btn:hover {
+  background: #eee;
+  border: 2px solid #e0bc90b2;
+  text-decoration: none;
+  color: rgb(128, 125, 125);
+  outline: none;
+}
+
+.model-footer {
+  background-color: #fff;
+}
+
+.close {
+  outline: none !important;
+}
+
+/*-----------------------------
+home text title dashboard
+-----------------------------*/
+
+.dash-title {
+  color: rgb(178, 178, 184) !important;
+  background-color: aliceblue;
+  display: inline-block;
+  text-align: center;
+}
+
+/*-------------------------------
+span as link in the modal in body
+--------------------------------*/
+
+.linkspan:hover {
+  color: #595a5a;
+  cursor: pointer;
+}
+
+/*----------------------------------------
+brand-img
+------------------------------------------*/
+.card-out {
+  border: none;
+}
+
+/*----------------------------------------
+search bar
+-----------------------------------------*/
+#searchBar input {
+  width: 380px;
+  height: 35px;
+  border-radius: 50px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.searchBtn {
+  height: 35px;
+  font-weight: 300;
+  margin: 0%;
+  color: rgb(44, 43, 43);
+  outline: none;
+}
+
+.mainDisplay {
+  height: 100%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
